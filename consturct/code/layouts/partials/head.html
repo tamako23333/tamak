@@ -9,8 +9,7 @@
   {{ end }}
 {{ end }}
 
-{{ $sass := resources.Get "scss/main.scss" }}
-{{ $style := $sass | css.Sass | resources.Minify | resources.Fingerprint }}
+{{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 {{ $js := resources.Get "js/main.js" }}
