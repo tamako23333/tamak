@@ -1,0 +1,52 @@
+{{ define "main" }}
+<section class="home-posts">
+  <h2>{{ i18n "latest_posts" }}</h2>
+  {{ $posts := where .Site.RegularPages "Section" "posts" | first 5 }}
+  {{ range $posts }}
+    {{ .Render "summary" }}
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+  <a href="{{ "/posts" | relLangURL }}">{{ i18n "view_all" }} →</a>
+</section>
+
+<section class="home-notes">
+  <h2>{{ i18n "latest_notes" }}</h2>
+  {{ $notes := where .Site.RegularPages "Section" "notes" | first 5 }}
+  {{ range $notes }}
+    {{ .Render "summary" }}
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+  <a href="{{ "/notes" | relLangURL }}">{{ i18n "view_all" }} →</a>
+</section>
+
+<section class="home-shares">
+  <h2>{{ i18n "latest_shares" }}</h2>
+  {{ $shares := where .Site.RegularPages "Section" "shares" | first 3 }}
+  {{ range $shares }}
+    {{ .Render "summary" }}
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+  <a href="{{ "/shares" | relLangURL }}">{{ i18n "view_all" }} →</a>
+</section>
+
+<section class="home-social">
+  <h2>{{ i18n "social_preview" }}</h2>
+  {{ $social := hugo.Data.social | first 3 }}
+  <div class="social-cards">
+    {{ range $social }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="social-card">
+      <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+      <div class="social-card-info">
+        <span class="social-platform">{{ .platform }}</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  <a href="{{ "/social" | relLangURL }}">{{ i18n "view_all" }} →</a>
+</section>
+{{ end }}

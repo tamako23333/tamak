@@ -1,0 +1,5 @@
+<article class="summary-card">
+  <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+  <p>{{ .Summary | truncate 200 }}</p>
+</article>

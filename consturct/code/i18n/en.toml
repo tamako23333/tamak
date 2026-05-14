@@ -1,0 +1,26 @@
+[no_content]
+other = 'No content yet'
+
+[view_all]
+other = 'View all'
+
+[latest_posts]
+other = 'Latest Posts'
+
+[latest_notes]
+other = 'Notes'
+
+[latest_shares]
+other = 'Recommendations'
+
+[social_preview]
+other = 'External Links'
+
+[show_notes]
+other = 'Show notes'
+
+[permalink]
+other = 'Permalink'
+
+[visit_link]
+other = 'Visit link'

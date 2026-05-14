@@ -1,0 +1,8 @@
+{{ $images := split (.Get "images") "," }}
+<div class="shortcode-gallery">
+  {{ range $images }}
+  <figure>
+    <img src="{{ trim . " " }}" alt="" loading="lazy">
+  </figure>
+  {{ end }}
+</div>

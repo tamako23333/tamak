@@ -1,0 +1,19 @@
+{{ define "main" }}
+<article class="share-single">
+  <header>
+    {{ with .Params.image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="share-hero">
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+    <span class="share-type">{{ .Params.item_type }}</span>
+  </header>
+  <div class="share-content">
+    {{ .Content }}
+  </div>
+  {{ with .Params.link }}
+  <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="share-link-external">{{ i18n "visit_link" }} →</a>
+  {{ end }}
+</article>
+{{ partial "giscus.html" . }}
+{{ end }}

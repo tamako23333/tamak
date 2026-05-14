@@ -1,0 +1,20 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="album-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="album-item">
+    <a href="{{ .Permalink }}">
+      {{ $firstImage := index (.Params.images | default (slice)) 0 }}
+      {{ if $firstImage }}
+      <img src="{{ $firstImage }}" alt="{{ .Title }}" loading="lazy">
+      {{ end }}
+      <h2>{{ .Title }}</h2>
+    </a>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+  </article>
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+</div>
+{{ end }}

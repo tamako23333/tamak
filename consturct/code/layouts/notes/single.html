@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="note-single">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02 15:04" }}</time>
+  <div class="note-body">
+    {{ .Content }}
+  </div>
+</article>
+{{ partial "giscus.html" . }}
+{{ end }}

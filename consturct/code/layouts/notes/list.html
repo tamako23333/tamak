@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="notes-timeline">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="note-item">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02 15:04" }}</time>
+    <div class="note-body">
+      {{ .Content }}
+    </div>
+    <a href="{{ .Permalink }}" class="note-permalink">{{ i18n "permalink" }}</a>
+  </article>
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+</div>
+{{ end }}

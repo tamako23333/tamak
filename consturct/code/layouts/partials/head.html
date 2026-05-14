@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+
+{{ if .IsTranslated }}
+  {{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{ end }}
+{{ end }}
+
+{{ $sass := resources.Get "scss/main.scss" }}
+{{ $style := $sass | css.Sass | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{ $js := resources.Get "js/main.js" }}
+{{ if $js }}
+{{ $script := $js | resources.Minify | resources.Fingerprint }}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+
+<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS" href="{{ "index.xml" | relURL }}">

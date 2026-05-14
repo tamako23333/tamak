@@ -1,0 +1,26 @@
+[no_content]
+other = '暂无内容'
+
+[view_all]
+other = '查看全部'
+
+[latest_posts]
+other = '最新文章'
+
+[latest_notes]
+other = '零碎想法'
+
+[latest_shares]
+other = '好物推荐'
+
+[social_preview]
+other = '外部内容'
+
+[show_notes]
+other = '查看节目笔记'
+
+[permalink]
+other = '固定链接'
+
+[visit_link]
+other = '访问链接'

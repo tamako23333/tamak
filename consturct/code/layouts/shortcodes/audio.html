@@ -1,0 +1,6 @@
+<div class="shortcode-audio">
+  <audio controls preload="none">
+    <source src="{{ .Get "src" }}" type="audio/mpeg">
+  </audio>
+  {{ with .Get "caption" }}<p class="audio-caption">{{ . }}</p>{{ end }}
+</div>

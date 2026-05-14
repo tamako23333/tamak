@@ -1,0 +1,18 @@
+# 社交媒体链接 — 以内容卡片形式展示
+# 每个平台可有多条内容（如多个B站视频）
+# platform: bilibili | youtube | github | steam | other
+# 预览图片放在 static/images/social/ 下
+
+- platform: 'github'
+  title: 'Tamak on GitHub'
+  description: '个人开源项目与代码'
+  image: '/images/social/github-card.jpg'
+  url: 'https://github.com/tamak'
+  weight: 1
+
+- platform: 'bilibili'
+  title: '示例B站视频'
+  description: '视频描述简介'
+  image: '/images/social/bilibili-cover.jpg'
+  url: 'https://space.bilibili.com/'
+  weight: 2

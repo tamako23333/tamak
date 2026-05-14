@@ -1,0 +1,21 @@
+<header>
+  <nav>
+    <a href="{{ "/" | relLangURL }}" class="logo">{{ .Site.Title }}</a>
+    <ul class="nav-links">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <div class="lang-switch">
+      {{ if .IsTranslated }}
+        {{ range .Translations }}
+        <a href="{{ .Permalink }}" lang="{{ .Lang }}">{{ .Language.Label }}</a>
+        {{ end }}
+      {{ else }}
+        {{ range $.Site.Home.Translations }}
+        <a href="{{ .Permalink }}" lang="{{ .Lang }}">{{ .Language.Label }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </nav>
+</header>

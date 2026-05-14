@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="shares-cards">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="share-card">
+    {{ with .Params.image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy" class="share-image">
+    {{ end }}
+    <div class="share-info">
+      <span class="share-type">{{ .Params.item_type }}</span>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <p class="share-reason">{{ .Params.recommendation | truncate 150 }}</p>
+      {{ with .Params.link }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="share-link">{{ i18n "visit_link" }}</a>
+      {{ end }}
+    </div>
+  </article>
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+</div>
+{{ end }}

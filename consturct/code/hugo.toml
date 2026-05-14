@@ -1,0 +1,127 @@
+baseURL = 'https://tamak.xyz/'
+defaultContentLanguage = 'zh'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = false
+
+[build]
+  writeStats = true
+
+[markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+# ── 多语言 ──────────────────────────────────────
+
+[languages.zh]
+  locale = 'zh-CN'
+  label = '中文'
+  title = 'Tamak'
+  weight = 1
+
+  [languages.zh.params]
+    description = '思考、记录与分享'
+
+  [[languages.zh.menus.main]]
+    name = '首页'
+    pageRef = '/'
+    weight = 1
+  [[languages.zh.menus.main]]
+    name = '文章'
+    pageRef = '/posts'
+    weight = 2
+  [[languages.zh.menus.main]]
+    name = 'Podcast'
+    pageRef = '/podcast'
+    weight = 3
+  [[languages.zh.menus.main]]
+    name = 'Album'
+    pageRef = '/album'
+    weight = 4
+  [[languages.zh.menus.main]]
+    name = '零碎想法'
+    pageRef = '/notes'
+    weight = 5
+  [[languages.zh.menus.main]]
+    name = '好物分享'
+    pageRef = '/shares'
+    weight = 6
+  [[languages.zh.menus.main]]
+    name = '外链'
+    pageRef = '/social'
+    weight = 7
+
+[languages.en]
+  locale = 'en-US'
+  label = 'English'
+  title = 'Tamak'
+  weight = 2
+
+  [languages.en.params]
+    description = 'Think, record, and share'
+
+  [[languages.en.menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 1
+  [[languages.en.menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 2
+  [[languages.en.menus.main]]
+    name = 'Podcast'
+    pageRef = '/podcast'
+    weight = 3
+  [[languages.en.menus.main]]
+    name = 'Album'
+    pageRef = '/album'
+    weight = 4
+  [[languages.en.menus.main]]
+    name = 'Notes'
+    pageRef = '/notes'
+    weight = 5
+  [[languages.en.menus.main]]
+    name = 'Shares'
+    pageRef = '/shares'
+    weight = 6
+  [[languages.en.menus.main]]
+    name = 'Links'
+    pageRef = '/social'
+    weight = 7
+
+# ── 评论系统 ────────────────────────────────────
+
+[params.giscus]
+  data_repo = ''
+  data_repo_id = ''
+  data_category = ''
+  data_category_id = ''
+  data_mapping = 'pathname'
+  data_strict = '0'
+  data_lang_zh = 'zh-CN'
+  data_lang_en = 'en'
+
+# ── 模块 ────────────────────────────────────────
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'

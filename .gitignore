@@ -1,0 +1,15 @@
+# Hugo
+consturct/code/public/
+consturct/code/resources/
+.hugo_build.lock
+
+# Tools (downloaded binaries)
+tools/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

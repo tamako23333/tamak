@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="podcast-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="podcast-episode" id="episode-{{ .File.UniqueID }}">
+    <div class="podcast-header">
+      <h2>{{ .Title }}</h2>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+      {{ with .Params.duration }}<span class="duration">{{ . }}</span>{{ end }}
+    </div>
+    {{ partial "audio-player.html" . }}
+    <details class="podcast-details">
+      <summary>{{ i18n "show_notes" }}</summary>
+      <div class="podcast-description">
+        {{ .Content }}
+      </div>
+    </details>
+  </article>
+  {{ else }}
+    <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+</div>
+{{ end }}

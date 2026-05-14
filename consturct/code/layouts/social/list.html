@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="social-cards">
+  {{ range hugo.Data.social }}
+  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="social-card">
+    <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+    <div class="social-card-info">
+      <span class="social-platform">{{ .platform }}</span>
+      <h2>{{ .title }}</h2>
+      <p>{{ .description }}</p>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
