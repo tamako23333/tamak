@@ -24,3 +24,42 @@ other = 'Permalink'
 
 [visit_link]
 other = 'Visit link'
+
+[follow_me]
+other = 'Follow me if you find this useful'
+
+[top_videos]
+other = 'Top Videos'
+
+[popular]
+other = 'Popular'
+
+[inspiration]
+other = 'Inspiration Lab'
+
+[randomize]
+other = 'Randomize'
+
+[podcast_type]
+other = 'Podcast'
+
+[album_type]
+other = 'Photography'
+
+[share_type]
+other = 'Recommendation'
+
+[note_type]
+other = 'Thought'
+
+[podcast_type_lbl]
+other = 'Podcast'
+
+[album_type_lbl]
+other = 'Photography'
+
+[share_type_lbl]
+other = 'Share'
+
+[note_type_lbl]
+other = 'Note'

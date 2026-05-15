@@ -24,3 +24,42 @@ other = '固定链接'
 
 [visit_link]
 other = '访问链接'
+
+[follow_me]
+other = '如果觉得有用，欢迎关注'
+
+[top_videos]
+other = '热门视频'
+
+[popular]
+other = '热门内容'
+
+[inspiration]
+other = '灵感实验室'
+
+[randomize]
+other = '随机探索'
+
+[podcast_type]
+other = 'Podcast'
+
+[album_type]
+other = '摄影'
+
+[share_type]
+other = '推荐'
+
+[note_type]
+other = '想法'
+
+[podcast_type_lbl]
+other = '播客'
+
+[album_type_lbl]
+other = '摄影'
+
+[share_type_lbl]
+other = '推荐'
+
+[note_type_lbl]
+other = '随笔'

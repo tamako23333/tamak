@@ -13,5 +13,19 @@
     {{ .Content }}
   </div>
 </article>
+
+{{ with .Site.GetPage "/" }}
+<section class="article-follow">
+  <p>{{ i18n "follow_me" }}</p>
+  <div class="article-follow-links">
+    {{ range .Params.hero_socials }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+      {{ .emoji }} {{ .name }}
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
 {{ partial "giscus.html" . }}
 {{ end }}

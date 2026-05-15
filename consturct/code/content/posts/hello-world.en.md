@@ -1,5 +1,6 @@
 ---
 title: 'Hello, World'
+subtitle: 'Random thoughts while building this site from scratch'
 date: '2026-05-14'
 draft: false
 tags: ['misc']

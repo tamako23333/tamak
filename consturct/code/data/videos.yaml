@@ -1,0 +1,14 @@
+# 视频推荐 — 用于首页左侧栏
+# 按浏览量或重要性排序
+
+- title: 'meme！黑神话悟空'
+  platform: 'bilibili'
+  cover: 'https://i1.hdslb.com/bfs/archive/3c4b9c30f4b6f78e728beae4da3d6782c3d37600.jpg'
+  url: 'https://www.bilibili.com/video/BV12nyrY1Et7/'
+  views: 'B站'
+
+- title: '翻唱：晴天'
+  platform: 'youtube'
+  cover: '/images/videos/cover-sunny.jpg'
+  url: 'https://youtube.com/@tamak'
+  views: 'YouTube'
