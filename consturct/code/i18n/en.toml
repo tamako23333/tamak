@@ -63,3 +63,72 @@ other = 'Share'
 
 [note_type_lbl]
 other = 'Note'
+
+[home_projects]
+other = 'Projects'
+
+[back_projects]
+other = 'Back to Projects'
+
+[memory_timeline]
+other = 'Life Timeline'
+
+[memory_stories]
+other = 'Featured Stories'
+
+[memory_items]
+other = 'Treasured Items'
+
+[memory_cta]
+other = 'What story would you tell?'
+
+[memory_cta_sub]
+other = 'Every life is a museum worth visiting.'
+
+[memory_home]
+other = 'Home'
+
+[memory_fragments]
+other = 'Fragments of Life'
+
+[memory_fragments_sub]
+other = 'Small treasures tucked into the corners of memory'
+
+[three_d_title]
+other = '3D Treasury'
+
+[three_d_hint]
+other = 'Drag to rotate · Scroll to zoom · Right-drag to pan'
+
+[three_d_drag]
+other = 'Drag to rotate'
+
+[three_d_zoom]
+other = 'Scroll to zoom'
+
+[three_d_era]
+other = 'Qing Dynasty · Jingdezhen Kiln'
+
+[three_d_name]
+other = 'Famille Rose Peony Vase'
+
+[three_d_desc]
+other = 'A famille rose porcelain vase from the Qing Dynasty, part of my great-grandmother’s dowry. The body is painted with blooming peonies — symbols of prosperity and good fortune. The glaze is warm as jade, and the gold-outlined petals shimmer subtly in the light. After more than a century, it remains flawless — a treasure passed down through generations.'
+
+[three_d_material]
+other = 'Material'
+
+[three_d_material_val]
+other = 'Porcelain · Famille Rose'
+
+[three_d_origin]
+other = 'Origin'
+
+[three_d_origin_val]
+other = 'Jingdezhen'
+
+[three_d_age]
+other = 'Period'
+
+[three_d_age_val]
+other = 'c. 1890'

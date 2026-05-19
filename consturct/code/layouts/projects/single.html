@@ -1,0 +1,47 @@
+{{ define "main" }}
+<article class="project-single">
+  <header class="project-hero">
+    {{ with .Params.cover }}
+    <img class="project-hero-cover" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+    {{ end }}
+    <div class="project-hero-text">
+      <a class="project-back" href="{{ "/projects" | relLangURL }}">← {{ i18n "back_projects" }}</a>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+      <p class="project-hero-subtitle">{{ . }}</p>
+      {{ end }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+      {{ with .Params.tags }}
+      <div class="tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      {{ with .Params.links }}
+      <div class="project-links">
+        {{ range . }}
+        <a class="project-link-btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+  <div class="content-body project-body">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ with .Site.GetPage "/" }}
+<section class="article-follow">
+  <p>{{ i18n "follow_me" }}</p>
+  <div class="article-follow-links">
+    {{ range .Params.hero_socials }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+      {{ .emoji }} {{ .name }}
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ partial "giscus.html" . }}
+{{ end }}

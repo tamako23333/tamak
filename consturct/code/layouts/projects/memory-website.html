@@ -1,0 +1,188 @@
+{{ define "main" }}
+<article class="project-single project-museum">
+
+  <!-- ── Museum Hero ── -->
+  <header class="museum-hero">
+    {{ with .Params.cover }}
+    <div class="museum-hero-bg">
+      <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+    </div>
+    {{ else }}
+    <div class="museum-hero-bg museum-hero-gradient"></div>
+    {{ end }}
+    <div class="museum-hero-overlay">
+      <div class="museum-hero-ornament"></div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+      <p class="museum-hero-subtitle">{{ . }}</p>
+      {{ end }}
+      <div class="museum-hero-ornament bottom"></div>
+    </div>
+  </header>
+
+  <!-- ── Sub-navigation ── -->
+  {{ partial "memory-subnav.html" . }}
+
+  <!-- ── Back link + Links ── -->
+  <div class="museum-back-wrap">
+    <a class="project-back" href="{{ "/projects" | relLangURL }}">← {{ i18n "back_projects" }}</a>
+  </div>
+  {{ with .Params.links }}
+  <div class="museum-links-bar">
+    {{ range . }}
+    <a class="museum-link-btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ── Intro ── -->
+  {{ with .Summary }}
+  <section class="museum-intro">
+    <p>{{ . | plainify }}</p>
+  </section>
+  {{ end }}
+
+  <!-- ── Divider ── -->
+  <div class="museum-divider"><span>✦</span></div>
+
+  <!-- ══════════ Timeline: Flowing River ══════════ -->
+  {{ with .Params.timeline }}
+  <section class="museum-timeline-section">
+    <h2 class="museum-section-title">{{ i18n "memory_timeline" }}</h2>
+    <div class="timeline-flow">
+      {{ range $i, $event := . }}
+      <div class="timeline-panel {{ if modBool $i 2 }}panel-left{{ else }}panel-right{{ end }}">
+        <div class="timeline-year-marker">{{ .year }}</div>
+        <div class="timeline-content-card">
+          {{ with .image }}
+          <div class="timeline-card-img">
+            <img src="{{ . }}" alt="" loading="lazy">
+          </div>
+          {{ end }}
+          <div class="timeline-card-text">
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- ── Divider ── -->
+  <div class="museum-divider"><span>❦</span></div>
+
+  <!-- ══════════ Main Content (Stories, Gallery, Items) ══════════ -->
+  <div class="museum-body content-body">
+    {{ .Content }}
+  </div>
+
+  <!-- ══════════ Life Fragments Marquee ══════════ -->
+  {{ with .Params.fragments }}
+  <div class="museum-divider"><span>❦</span></div>
+  <section class="fragments-section">
+    <h2 class="museum-section-title">{{ i18n "memory_fragments" }}</h2>
+    <p class="fragments-subtitle">{{ i18n "memory_fragments_sub" }}</p>
+    <div class="fragments-marquee">
+      {{ range $row := (slice 0 1 2) }}
+      <div class="fragments-track track-{{ if eq $row 1 }}right{{ else }}left{{ end }}">
+        {{ $frags := $.Params.fragments }}
+        {{ range $frags }}
+        <div class="fragment-card" data-fragment="{{ .title | htmlEscape }}" data-image="{{ .image }}" data-desc="{{ .description | htmlEscape }}">
+          <div class="fragment-card-img">
+            <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+          </div>
+          <span class="fragment-card-label">{{ .title }}</span>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- ── CTA Footer ── -->
+  <section class="museum-footer-cta">
+    <div class="museum-footer-ornament"></div>
+    <h2>{{ i18n "memory_cta" }}</h2>
+    <p>{{ i18n "memory_cta_sub" }}</p>
+    {{ with .Params.links }}
+    <div class="museum-footer-links">
+      {{ range . }}
+      <a class="museum-link-btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </section>
+
+</article>
+
+<!-- ══════════ Fragment Detail Modal ══════════ -->
+<div class="fragment-modal" id="fragment-modal">
+  <div class="fragment-modal-backdrop"></div>
+  <div class="fragment-modal-content">
+    <button class="fragment-modal-close" id="fragment-modal-close">&times;</button>
+    <img class="fragment-modal-image" id="fragment-modal-img" src="" alt="">
+    <div class="fragment-modal-text">
+      <h2 id="fragment-modal-title"></h2>
+      <p id="fragment-modal-desc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ── Scroll reveal for timeline panels ── */
+  var panels = document.querySelectorAll('.timeline-panel');
+  function revealPanels(){
+    panels.forEach(function(p){
+      var rect = p.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        p.classList.add('revealed');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealPanels);
+  window.addEventListener('load', revealPanels);
+  revealPanels();
+
+  /* ── Fragment modal ── */
+  var cards = document.querySelectorAll('.fragment-card');
+  var modal = document.getElementById('fragment-modal');
+  var modalImg = document.getElementById('fragment-modal-img');
+  var modalTitle = document.getElementById('fragment-modal-title');
+  var modalDesc = document.getElementById('fragment-modal-desc');
+  var closeBtn = document.getElementById('fragment-modal-close');
+  var backdrop = modal ? modal.querySelector('.fragment-modal-backdrop') : null;
+
+  if (!cards.length || !modal) return;
+
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){
+      var title = card.getAttribute('data-fragment') || '';
+      var image = card.getAttribute('data-image') || '';
+      var desc = card.getAttribute('data-desc') || '';
+      modalImg.src = image;
+      modalImg.alt = title;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal(){
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+
+{{ partial "giscus.html" . }}
+{{ end }}

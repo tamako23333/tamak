@@ -63,3 +63,72 @@ other = '推荐'
 
 [note_type_lbl]
 other = '随笔'
+
+[home_projects]
+other = '项目'
+
+[back_projects]
+other = '返回项目列表'
+
+[memory_timeline]
+other = '人生时间线'
+
+[memory_stories]
+other = '精选故事'
+
+[memory_items]
+other = '珍藏物品'
+
+[memory_cta]
+other = '你的故事是什么？'
+
+[memory_cta_sub]
+other = '每个人生都是一座值得参观的博物馆。'
+
+[memory_home]
+other = '首页'
+
+[memory_fragments]
+other = '人生碎片'
+
+[memory_fragments_sub]
+other = '那些藏在记忆角落里的光'
+
+[three_d_title]
+other = '3D 珍藏馆'
+
+[three_d_hint]
+other = '拖拽鼠标旋转 · 滚轮缩放 · 右键平移'
+
+[three_d_drag]
+other = '拖拽旋转'
+
+[three_d_zoom]
+other = '滚轮缩放'
+
+[three_d_era]
+other = '清代 · 景德镇窑'
+
+[three_d_name]
+other = '粉彩牡丹纹瓷瓶'
+
+[three_d_desc]
+other = '这是一件清代粉彩牡丹纹瓷瓶，曾祖母的陪嫁之物。瓶身绘有盛开的牡丹，寓意富贵吉祥。釉面温润如玉，金线勾勒的花瓣在光线下若隐若现。历经百年，依然完好如初，是家中代代相传的珍宝。'
+
+[three_d_material]
+other = '材质'
+
+[three_d_material_val]
+other = '陶瓷 · 粉彩'
+
+[three_d_origin]
+other = '产地'
+
+[three_d_origin_val]
+other = '景德镇'
+
+[three_d_age]
+other = '年代'
+
+[three_d_age_val]
+other = '约1890年'

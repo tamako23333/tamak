@@ -1,0 +1,32 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="project-grid">
+  {{ $regularPages := .Pages.ByDate.Reverse }}
+  {{ $subSections := slice }}
+  {{ range .Sections }}{{ $subSections = $subSections | append . }}{{ end }}
+  {{ $allProjects := $regularPages | append $subSections }}
+  {{ range $allProjects }}
+  <article class="project-card">
+    <a href="{{ .Permalink }}">
+      {{ with .Params.cover }}
+      <img class="project-card-cover" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      {{ end }}
+      <div class="project-card-body">
+        <h2>{{ .Title }}</h2>
+        {{ with .Params.subtitle }}
+        <p class="project-card-subtitle">{{ . }}</p>
+        {{ end }}
+        {{ with .Params.tags }}
+        <div class="project-card-tags">
+          {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </a>
+  </article>
+  {{ else }}
+  <p>{{ i18n "no_content" }}</p>
+  {{ end }}
+</div>
+{{ end }}

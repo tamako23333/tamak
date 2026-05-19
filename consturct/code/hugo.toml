@@ -34,25 +34,29 @@ enableGitInfo = false
     pageRef = '/posts'
     weight = 2
   [[languages.zh.menus.main]]
+    name = '项目'
+    pageRef = '/projects'
+    weight = 3
+  [[languages.zh.menus.main]]
     name = 'Podcast'
     pageRef = '/podcast'
-    weight = 3
+    weight = 4
   [[languages.zh.menus.main]]
     name = 'Album'
     pageRef = '/album'
-    weight = 4
+    weight = 5
   [[languages.zh.menus.main]]
     name = '零碎想法'
     pageRef = '/notes'
-    weight = 5
+    weight = 6
   [[languages.zh.menus.main]]
     name = '好物分享'
     pageRef = '/shares'
-    weight = 6
+    weight = 7
   [[languages.zh.menus.main]]
     name = '外链'
     pageRef = '/social'
-    weight = 7
+    weight = 8
 
 [languages.en]
   locale = 'en-US'
@@ -72,25 +76,29 @@ enableGitInfo = false
     pageRef = '/posts'
     weight = 2
   [[languages.en.menus.main]]
+    name = 'Projects'
+    pageRef = '/projects'
+    weight = 3
+  [[languages.en.menus.main]]
     name = 'Podcast'
     pageRef = '/podcast'
-    weight = 3
+    weight = 4
   [[languages.en.menus.main]]
     name = 'Album'
     pageRef = '/album'
-    weight = 4
+    weight = 5
   [[languages.en.menus.main]]
     name = 'Notes'
     pageRef = '/notes'
-    weight = 5
+    weight = 6
   [[languages.en.menus.main]]
     name = 'Shares'
     pageRef = '/shares'
-    weight = 6
+    weight = 7
   [[languages.en.menus.main]]
     name = 'Links'
     pageRef = '/social'
-    weight = 7
+    weight = 8
 
 # ── 评论系统 ────────────────────────────────────
 

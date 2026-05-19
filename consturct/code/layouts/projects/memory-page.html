@@ -1,0 +1,48 @@
+{{ define "main" }}
+<article class="project-single project-museum">
+
+  <!-- ── Sub-navigation ── -->
+  {{ partial "memory-subnav.html" . }}
+
+  <!-- ── Page Title ── -->
+  <header class="museum-page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="museum-page-subtitle">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <!-- ── Full-width Content ── -->
+  <div class="museum-body content-body">
+    {{ .Content }}
+  </div>
+
+  <!-- ── CTA Footer ── -->
+  <section class="museum-footer-cta">
+    <div class="museum-footer-ornament"></div>
+    <h2>{{ i18n "memory_cta" }}</h2>
+    <p>{{ i18n "memory_cta_sub" }}</p>
+  </section>
+
+</article>
+
+<script>
+(function(){
+  var panels = document.querySelectorAll('.timeline-panel');
+  function revealPanels(){
+    panels.forEach(function(p){
+      var rect = p.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        p.classList.add('revealed');
+      }
+    });
+  }
+  if (panels.length) {
+    window.addEventListener('scroll', revealPanels);
+    window.addEventListener('load', revealPanels);
+    revealPanels();
+  }
+})();
+</script>
+
+{{ end }}
